@@ -1,44 +1,50 @@
 
-public class NodeMethods {
-
-	Node queue;
-	public Node[] nodeQ;
-
-	public NodeMethods() {
-		
-		Node N=new Node();
-		
-		nodeQ= {N};
-		this.queue= new Node();
-
-		
-
-	}
-
+public class NodeMethods<T> {
+	
+	private Node<T> head;
+	private Node<T> tail;
 	
 
-	public void put() {
-		Node node = this.nodeQ[0];
+	public void put(T data) {
 
-		while (node.next != null) {
-			node = node.next;
+		Node<T> newNode = new Node<>(null,data);
+		
+		if(this.head == null) {
+			
+			System.out.println("List is empty, adding first element");
+			this.head = newNode;
+			this.tail = newNode;
 		}
-		node.next = new Node();
+		else {
+			this.tail.setNextNode(newNode);
+			this.tail = newNode;
+		}
 	}
 
-	public int peek(Node[] nodeQ) {
-		Node node = nodeQ[0];
-		return node.id;
+	public T peek() {
+		if(this.head != null) {
+			return this.head.getData();
+		}
+		else {
+			return null;			
+		}
 	}
 
-	public Node[] pop() {
+	public T pop() {
 
-		peek(nodeQ);
-		Node node = nodeQ[0];
-
-		nodeQ[0] = nodeQ[0].next;
-
-		return nodeQ;
+		Node<T> firstNode = this.head;
+		if(firstNode != null) {
+			this.head = firstNode.getNextNode();
+			return this.head.getData();
+		}
+		return null;
 	}
 
+	public void printList() {
+		Node<T> currentNode = this.head;
+		while(currentNode != null) {
+			System.out.println("Node location: " +currentNode.hashCode() + ",Node Value" +currentNode.getData());
+			currentNode = currentNode.getNextNode();
+		}
+	}
 }

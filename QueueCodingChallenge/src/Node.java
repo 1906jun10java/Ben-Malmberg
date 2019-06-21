@@ -1,13 +1,25 @@
 
-public class Node {
+public class Node<T> {
 
-	public Node(){
-		this.id = reoccurance++;
+	public Node(Node<T> nextNode, T data){
+		this.nextNode = nextNode;
+		this.data = data;
 	}
 	
-	Node next;
-	public int id;
-	public static int reoccurance = 1;
+	private Node <T> nextNode;
+	private T data;
 	
-
+	public T getData() {
+		return data;
+	}
+	public void setData(T data) {
+		this.data = data;
+	}
+	
+	public Node<T> getNextNode(){
+		return nextNode;
+	}
+	public void setNextNode(Node<T> nextNode) {
+		this.nextNode = nextNode;
+	}
 }
