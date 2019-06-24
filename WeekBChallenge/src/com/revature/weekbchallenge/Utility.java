@@ -1,14 +1,16 @@
 package com.revature.weekbchallenge;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Utility {
 
 	static ArrayList<String> bank = new ArrayList<String>();
-	static File fs = new File("bank.txt");
-	
+	static File file = new File("bank.txt");
+	//static FileInputStream fs = new FileInputStream("bank.txt");
+
 	private String start;
 	private String end;
 
@@ -66,9 +68,8 @@ public class Utility {
 		String end;
 
 		Scanner sc = new Scanner(System.in);
-		
-		//System.out.println("Input the gene bank");
-		
+
+		// System.out.println("Input the gene bank");
 
 		System.out.println("Input the original gene string ");
 
@@ -128,8 +129,9 @@ public class Utility {
 		return mutation;
 	}
 
-	public static void fileStream() {
+	/*public static void fileStream() {
 		System.out.println(fs.getAbsolutePath());
+		fs.
 		
-	}
+	}*/
 }
