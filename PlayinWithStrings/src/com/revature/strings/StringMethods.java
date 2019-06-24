@@ -1,5 +1,7 @@
 package com.revature.strings;
 
+import java.util.Arrays;
+
 public class StringMethods {
 
 	public static String reversal(String string) {
@@ -42,17 +44,32 @@ public class StringMethods {
 	}
 
 	public static String recursiveReversal(String string) {
-		char[] dArray = new char[string.length()];
-		char[] cArray = new char[string.length()];
-		int i = 0;
-		cArray = string.toCharArray();
-
-		if (cArray[0] == cArray[i]) {
-			dArray[i] = cArray[cArray.length - 1];
+		
+		char[] arr1 = string.toCharArray();
+		
+		if(string.length() == 1) {
+			return string;
 		}
 		
-		string = String.valueOf(dArray);
-		return recursiveReversal(string);
+		//stores the last letter then makes a copy of the array with one less value and calls it self recursively
+		return string.charAt(string.length() -1) + recursiveReversal(String.copyValueOf(Arrays.copyOf(arr1, string.length()-1)));		
 	}
 
+	public static boolean recursivePalendrome(String string) {
+		
+		char[] arr1 = string.toCharArray();
+		
+		int length = string.length();
+		
+		if(length == 1 || length == 0) {
+			return true;
+		}
+		
+		//creates a copy of the string array with one less index then calls itself recursively
+		if(arr1[0] == arr1[length -1 ]) {
+			return recursivePalendrome(String.copyValueOf(Arrays.copyOfRange(arr1,1,length-1)));
+		}
+		else
+			return false;
+		}
 }

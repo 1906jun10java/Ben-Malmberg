@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		String flip = "Pancakes";
-		String drome = "racecar";
+		String drome = "tacocat";
 		String flipped;
 		boolean test;
 		
@@ -16,6 +16,9 @@ public class Main {
 		
 		flipped = StringMethods.recursiveReversal(flip);
 		System.out.println(flipped);
+		
+		test = StringMethods.recursivePalendrome(drome);
+		System.out.println(test);
 		
 	}
 

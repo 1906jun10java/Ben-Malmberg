@@ -6,6 +6,8 @@ public class Driver {
 		
 		Utility ul = new Utility();
 		
+		Utility.fileStream();
+		
 		ul.userInput();
 
 	}

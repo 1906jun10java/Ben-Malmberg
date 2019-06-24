@@ -23,7 +23,7 @@ public class MyBinaryTreeDemo {
 		System.out.println("size of tree: "+tree.getSize());
 		
 		System.out.println("Searching for 17");
-		test = tree.containsNode(7);
+		test = tree.containsNode(17);
 		System.out.println(test);
 		
 	}
