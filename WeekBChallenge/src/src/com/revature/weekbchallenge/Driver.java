@@ -1,4 +1,6 @@
-package com.revature.weekbchallenge;
+package src.com.revature.weekbchallenge;
+
+import com.revature.weekbchallenge.Utility;
 
 public class Driver {
 
