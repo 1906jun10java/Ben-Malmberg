@@ -40,5 +40,30 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			EmployeeList.addEmployee(c);
 		}
 	}
+	
+	public void returnAvgByDpt() throws SQLException{
+		
+		Connection conn = cf.getConnection();
+		String sql = "SELECT AVG((SALARY))FROM EMPLOYEE GROUP BY DEPARTMENT_ID";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		int iterator = 1;
+		while(rs.next()) {
+			
+			if(iterator == 1) {
+				System.out.println("Average salary for Human Resources: "+rs.getDouble(1));
+				iterator++;
+			}
+			else if(iterator == 2) {
+				System.out.println("Average salary for Marketing: "+rs.getDouble(1));
+				iterator++;
+			}
+			else if(iterator == 3) {
+				System.out.println("Average salary for Sales: "+rs.getDouble(1));	
+				iterator++;
+			}
+			
+		}
+	}
 
 }

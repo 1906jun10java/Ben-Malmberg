@@ -35,4 +35,12 @@ public class DAOUtility {
 			e.printStackTrace();
 		}
 	}
+	public static void tryReturnAvgByDpt() {
+		try {
+			edi.returnAvgByDpt();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
