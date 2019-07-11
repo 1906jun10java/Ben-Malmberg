@@ -14,10 +14,10 @@ window.onload = function(){
     });
 
     function fibonacci(num){
-        if(n===0){
-            return 1;
+        if(num===0){
+            return 0;
         }
-        else if(n===1){
+        else if(num===1 || num === 2){
             return 1;
         }
         else{
@@ -36,27 +36,23 @@ window.onload = function(){
         }  
     }
     function factorial(n){
-        if(n===1){
+        if(n=== 0){
+            return 1;
+        }
+        else if(n===1){
             return 1;
         }
         else{
-            return n * factorial(n);
+            return n * factorial(n - 1);
         }
     } 
     function rotateLeft(array,reps){
-        for(let i = 0; i < reps; i++){
-            for(let j = 0;j < array.length; j++){
-                let temp = array[0];
-                if(j === 0){
-                    continue;
-                }
-                else if(j===array.length){
-                    array[array.length] = temp;
-                }
-                else{
-                    array[j-1] = array[j];
-                
-                }
+        let length = array.length;
+        for(let i = 0; i < length; i++){
+
+            if(num === array[i]){
+                arrays.shift();
+                array.push(num);
             }
         } 
     }
