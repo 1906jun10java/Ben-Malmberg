@@ -67,33 +67,42 @@ window.onload = function(){
         }
 
         for(let i = 0; i < reps; i++){
-            if(reps > length){//if reps is greater than length
-                reps =((length + (reps))-i)%length;  //length +(reps)
-            }
-            else{
-                temp = parsed.shift();
-                parsed.push(temp);
-            }
+            temp = parsed.shift();
+            parsed.push(temp);
         } 
         return parsed;
     }
     function balancedBrackets(bracketString){
         let opp;
+        let bracketArray = [];
 
-		if (bracketString.length == 0 || bracketString.length == 1) {
+        for(let k = 0; k < bracketString.length ;k++){
+            bracketArray[k] = bracketString[k];
+        }
+
+
+		if (bracketArray.length == 0 || bracketArray.length == 1) {
 			return false;
 		}
 
-		if (bracketString[0] == '[') {
+		if (bracketArray[0] == '[') {
 			opp = ']';
         } 
-        else if (bracketString[0] == '{') {
-			opp = '{';
+        else if (bracketArray[0] == '{') {
+			opp = '}';
         } 
-        else if (bracketString[0] == '(') {
+        else if (bracketArray[0] == '(') {
 			opp = ')';
 		}
-		let a = opp === bracketString(bracketString.length - 1);
-		return a || oppRecursion(bracketString(1, bracketString.length - 1));
+		
+		if(bracketArray[bracketArray.length -1] === opp){
+            bracketArray.shift();
+            bracketArray.pop();
+            if(bracketArray[0] === undefined){
+                return true;
+            }
+            return balancedBrackets(bracketArray);
+        }
+        return false;
     }
 }
