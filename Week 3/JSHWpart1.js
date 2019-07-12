@@ -6,15 +6,18 @@ window.onload = function(){
         array = document.getElementById("array").value;
         reps = document.getElementById("reps").value;
         bracketString = document.getElementById("bracketString").value;
-        fibonacci(num);
-        sort(f);
-        factorial(n);
-        rotateLeft(array,reps);
-        balancedBrackets(bracketString);
+        console.log(fibonacci(num));
+        console.log(sort(f));
+        console.log(factorial(n));
+        console.log(rotateLeft(array,reps));
+        console.log(balancedBrackets(bracketString));
     });
 
     function fibonacci(num){
-        if(num===0){
+        if(num < 0){
+            return(NaN);
+        }
+        else if(num===0){
             return 0;
         }
         else if(num===1 || num === 2){
@@ -25,18 +28,26 @@ window.onload = function(){
         }
     }  
     function sort(f){
-        for(let i = 0; i < f.length; i++){
-            for(let j =0; j < f.length -i; j++){
-                    if(f[i]< f[j]){
-                    let temp = f[i];
-                    f[i] = f[j];
-                    f[j] = temp;
+       var array = [];
+       for(let k = 0;k < f.length; k++){
+           array[k] = parseInt(f[k]);
+       }
+        for(let i = 0; i < array.length; i++){
+            for(let j=0;j< array.length-1; j++){
+            if(array[j] > array[j+1]){
+                let temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
                 }
             }
-        }  
+        }
+        return array;  
     }
     function factorial(n){
-        if(n=== 0){
+        if(n < 0){
+            return(NaN);
+        }
+        else if(n=== 0){
             return 1;
         }
         else if(n===1){
@@ -48,31 +59,41 @@ window.onload = function(){
     } 
     function rotateLeft(array,reps){
         let length = array.length;
-        for(let i = 0; i < length; i++){
+        let temp = 0;
+        var parsed = [];
 
-            if(num === array[i]){
-                arrays.shift();
-                array.push(num);
+        for(let k = 0;k < length; k++){
+            parsed[k] = parseInt(array[k]);
+        }
+
+        for(let i = 0; i < reps; i++){
+            if(reps > length){//if reps is greater than length
+                reps =((length + (reps))-i)%length;  //length +(reps)
+            }
+            else{
+                temp = parsed.shift();
+                parsed.push(temp);
             }
         } 
+        return parsed;
     }
     function balancedBrackets(bracketString){
         let opp;
 
-		if (bracketString.length() == 0 || bracketString.length() == 1) {
+		if (bracketString.length == 0 || bracketString.length == 1) {
 			return false;
 		}
 
-		if (bracketString.charAt(0) == '[') {
+		if (bracketString[0] == '[') {
 			opp = ']';
         } 
-        else if (bracketString.charAt(0) == '{') {
+        else if (bracketString[0] == '{') {
 			opp = '{';
         } 
-        else if (bracketString.charAt(0) == '(') {
+        else if (bracketString[0] == '(') {
 			opp = ')';
 		}
-		let a = opp === string.charAt(string.length() - 1);
-		return a || oppRecursion(string.substring(1, string.length() - 1));
+		let a = opp === bracketString(bracketString.length - 1);
+		return a || oppRecursion(bracketString(1, bracketString.length - 1));
     }
 }
