@@ -1,4 +1,4 @@
-
+//tagged template
 let age = 34;
 function templateScript(strings, age){
    let str0 = strings[0];
