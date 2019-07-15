@@ -1,7 +1,7 @@
 //when the page loads create this button script that sends a get request to an api
 window.onload = function(){
    document.getElementById("pokeman").onclick = function() {
-       sendAjaxGet('https://pokeapi.co/api/v2/pokemon/25/', showPokeman);
+       sendAjaxGet('https://pokeapi.co/api/v2/pokemon/12/', showPokeman);
    };
 }
 

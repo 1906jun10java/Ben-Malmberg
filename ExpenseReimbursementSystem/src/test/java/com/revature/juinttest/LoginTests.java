@@ -61,7 +61,7 @@ public class LoginTests {
 	@Test
 	public void FaddReimbursementTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", null, 1, e.getDepartmentId());
+		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test",null, 1, e.getDepartmentId());
 		assertTrue(DAOUtility.tryAddReimbursementSQL(rr));
 	}
 

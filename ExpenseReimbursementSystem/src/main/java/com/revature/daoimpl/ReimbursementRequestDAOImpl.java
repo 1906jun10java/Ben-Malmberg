@@ -58,7 +58,12 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		ps.setInt(1, rr.getEmployeeId());
 		ps.setDouble(2, rr.getDollarAmount());
 		ps.setString(3, rr.getReason());
-		ps.setBlob(4,rr.getImageFile());
+		if(rr.getImageFile() == null) {
+			ps.setNull(4,java.sql.Types.BLOB);
+		}
+		else {
+			ps.setBlob(4, rr.getImageFile());
+		}
 		ps.setInt(5,rr.getStatus());
 		ps.setInt(6,rr.getDptId());
 		ps.execute();

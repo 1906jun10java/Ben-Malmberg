@@ -112,6 +112,7 @@ public class DAOUtility {
 			e.printStackTrace();
 		} catch(Exception e) {
 			log.error("An Exception occured when attempting to add a reimbursement request to the database"+e.getStackTrace()[0]);
+			e.printStackTrace();
 		}return false;
 	}
 	
