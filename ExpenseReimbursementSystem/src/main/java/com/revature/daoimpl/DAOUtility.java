@@ -79,21 +79,21 @@ public class DAOUtility {
 	public static List<ReimbursementRequest> tryReturnAllReimbursementRequestsSQL(){
 		List<ReimbursementRequest> tempList = new ArrayList<>();
 		try {
-			tempList = rrdi.returnAllReimbursementRequestsSQL();
+			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
 			return tempList;
 		} catch (SQLException e) {
 			log.error("A SQL Exception occured when attempting to return all reimbursement requests from the database "+e.getStackTrace()[0]);
 		} catch(Exception e) {
 			log.error("An exception occured when attempting to return all reimbursement requests from the database"+e.getStackTrace()[0]);
 		}
-		return null;
+		return tempList = new ArrayList<>();
 	}
 	
 	public static List<ReimbursementRequest> tryReturnReimbursementRequestByDptSQL(int dptId){
 		List<ReimbursementRequest> tempList = new ArrayList<>();
 		
 		try {
-			tempList = rrdi.returnReimbursementRequestByDptSQL(dptId);
+			tempList.addAll(rrdi.returnReimbursementRequestByDptSQL(dptId));
 			return tempList;
 		} catch (SQLException e) {
 			log.error("A SQL Exception occured when attempting to return all reimbursement requests by department from the database"+e.getStackTrace()[0]);
@@ -116,23 +116,25 @@ public class DAOUtility {
 		}return false;
 	}
 	
-	public static void tryRemoveReimbursementRequestSQL(int rID) {
+	public static boolean tryRemoveReimbursementRequestSQL(int rID) {
 		
 		try {
 			rrdi.removeReimbusementRequestSQL(rID);
+			return true;
 		} catch (SQLException e) {
 			log.error("A SQL Exception occured when attempting to remove a reimbursement request from the database"+e.getStackTrace()[0]);
 		} catch(Exception e) {
 			log.error("An exception occured when attempting to remove a reimbursement request from the database"+e.getStackTrace()[0]);
 		}
+		return false;
 	}
 	
-	public static ReimbursementRequest tryReturnReimbursementRequestByEmployeeId(int id) {
+	public static List<ReimbursementRequest> tryReturnReimbursementRequestByEmployeeId(int id) {
 		
-		ReimbursementRequest rr;
+		List<ReimbursementRequest> tempList = new ArrayList<>();
 		try {
-			rr = rrdi.returnReimbursementRequestByEmployeeID(id);
-			return rr;
+			tempList.addAll(rrdi.returnReimbursementRequestsByEmployeeID(id));
+			return tempList;
 		} catch (SQLException e) {
 			log.error("A SQL Exception occured when attemting to return a reimbursement request from the database by employeeId"+e.getStackTrace()[0]);
 		} catch (Exception e) {

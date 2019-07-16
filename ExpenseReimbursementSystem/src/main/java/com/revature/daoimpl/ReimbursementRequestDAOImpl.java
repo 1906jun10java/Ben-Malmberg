@@ -15,7 +15,7 @@ import com.revature.dao.ReimbursementRequestDAO;
 public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
-	
+
 	@Override
 	public List<ReimbursementRequest> returnAllReimbursementRequestsSQL() throws SQLException {
 		List<ReimbursementRequest> reimbursementList = new ArrayList<>();
@@ -24,8 +24,9 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		ReimbursementRequest rr = null;
-		while(rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),rs.getInt(7));
+		while (rs.next()) {
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
+					rs.getInt(7));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -38,12 +39,13 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		Connection conn = cf.getConnection();
 		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE DEPARTMENT_ID = ? ";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1,dptId);
+		ps.setInt(1, dptId);
 		ResultSet rs = ps.executeQuery();
-		
+
 		ReimbursementRequest rr = null;
-		while(rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6), rs.getInt(7));
+		while (rs.next()) {
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
+					rs.getInt(7));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -53,19 +55,17 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 	@Override
 	public void addReimbursementSQL(ReimbursementRequest rr) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "{ CALL INSERT_REIMBURSEMENT(?,?,?,?,?,?)";
+		String sql = "{ CALL INSERT_REIMBURSEMENT(?,?,?,?,?)";
 		CallableStatement ps = conn.prepareCall(sql);
 		ps.setInt(1, rr.getEmployeeId());
 		ps.setDouble(2, rr.getDollarAmount());
 		ps.setString(3, rr.getReason());
-		if(rr.getImageFile() == null) {
-			ps.setNull(4,java.sql.Types.BLOB);
-		}
-		else {
-			ps.setBlob(4, rr.getImageFile());
-		}
-		ps.setInt(5,rr.getStatus());
-		ps.setInt(6,rr.getDptId());
+		/*
+		 * if (rr.getImageFile() == null) { ps.setNull(4, java.sql.Types.BLOB); } else {
+		 * ps.setBlob(4, rr.getImageFile()); }
+		 */
+		ps.setInt(4, rr.getStatus());
+		ps.setInt(5, rr.getDptId());
 		ps.execute();
 	}
 
@@ -74,20 +74,27 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		Connection conn = cf.getConnection();
 		String sql = "DELETE FROM REIMBURSEMENT_REQUEST WHERE REID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1,rID);
+		ps.setInt(1, rID);
 		ps.executeUpdate();
 	}
 
 	@Override
-	public ReimbursementRequest returnReimbursementRequestByEmployeeID(int id) throws SQLException {
+	public List<ReimbursementRequest> returnReimbursementRequestsByEmployeeID(int id) throws SQLException {
+		List<ReimbursementRequest> reimbursementList = new ArrayList<>();
 		Connection conn = cf.getConnection();
 		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE EMPLOYEE_ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, id);
 		ResultSet rs = ps.executeQuery();
-		ReimbursementRequest rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6), rs.getInt(7));
-		rr.setReimbursementId(rs.getInt(1));
-		return rr;
+
+		ReimbursementRequest rr = null;
+		while (rs.next()) {
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
+					rs.getInt(7));
+			rr.setReimbursementId(rs.getInt(1));
+			reimbursementList.add(rr);
+		}
+		return reimbursementList;
 	}
 
 }
-

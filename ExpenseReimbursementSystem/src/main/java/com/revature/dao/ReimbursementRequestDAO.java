@@ -19,7 +19,7 @@ public interface ReimbursementRequestDAO {
 	public void removeReimbusementRequestSQL(int rID)
 	throws SQLException;
 	
-	public ReimbursementRequest returnReimbursementRequestByEmployeeID(int id)
+	public List<ReimbursementRequest> returnReimbursementRequestsByEmployeeID(int id)
 	throws SQLException;
 
 }

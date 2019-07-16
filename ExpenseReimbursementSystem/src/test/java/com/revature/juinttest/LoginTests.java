@@ -57,13 +57,48 @@ public class LoginTests {
 		e.setEmail("newemail@gmail.com");
 		assertTrue(DAOUtility.tryUpdateEmployeeSQL(e));
 	}
-	
+
 	@Test
 	public void FaddReimbursementTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test",null, 1, e.getDepartmentId());
+		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", null, 1,
+				e.getDepartmentId());
 		assertTrue(DAOUtility.tryAddReimbursementSQL(rr));
 	}
+
+	@Test
+	public void GReturnReimbursementByDptSQLTest() {
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		tempList.addAll(DAOUtility.tryReturnReimbursementRequestByDptSQL(2));
+		assertFalse(tempList.isEmpty());
+
+	}
+
+	@Test
+	public void HReturnAllReimbursementRequestsSQLTest() {
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		tempList.addAll(DAOUtility.tryReturnAllReimbursementRequestsSQL());
+		assertFalse(tempList.isEmpty());
+	}
+
+	@Test
+	public void IReturnReimbursementRequestsbyEmployeeIDTest() {
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		/* Employee e = returnAllEmployeesByDptTest(); */
+		tempList.addAll(DAOUtility.tryReturnReimbursementRequestByEmployeeId(123));
+		assertFalse(tempList.isEmpty());
+	}
+
+	/*
+	 * @Test public void JremoveReimbursementRequestSQLTest() {
+	 * 
+	 * List<ReimbursementRequest> tempList = new ArrayList<>(); Employee e =
+	 * returnAllEmployeesByDptTest();
+	 * tempList.addAll(DAOUtility.tryReturnReimbursementRequestByEmployeeId(e.
+	 * getEmployeeId())); ReimbursementRequest rr = tempList.get(0);
+	 * 
+	 * assertTrue(DAOUtility.tryRemoveReimbursementRequestSQL(2)); }
+	 */
 
 	@Test
 	public void zDeleteEmployeeTest() {
