@@ -1,6 +1,6 @@
 window.onload = function(){
    document.getElementById("submitLoginRequest").onclick=function(){
-      sendAjaxPost(80871/ExpenseReimbursementSystem/login/test.html,returnResponse);
+      sendAjaxPost(80871/ExpenseReimbursementSystem/login/test,returnResponse);
    };
 }
 
