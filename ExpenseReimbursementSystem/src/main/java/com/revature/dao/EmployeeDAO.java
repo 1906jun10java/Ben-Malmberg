@@ -19,7 +19,7 @@ public interface EmployeeDAO {
 	public void updateEmployeeSQL(Employee e)
 	throws SQLException;
 	
-	public void removeEmployeeSQL(Employee e)
+	public void removeEmployeeSQL(int id)
 	throws SQLException;
 
 }

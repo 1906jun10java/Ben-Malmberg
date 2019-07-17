@@ -1,7 +1,7 @@
 package com.revature.juinttest;
 
-import static org.junit.Assert.*;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.runners.*;
@@ -10,39 +10,24 @@ import org.junit.Test;
 
 import com.revature.beans.Employee;
 import com.revature.beans.ReimbursementRequest;
-import com.revature.daoimpl.DAOUtility;
-import com.revature.services.Login;
+import com.revature.daoimpl.EmployeeDAOImpl;
+import com.revature.daoimpl.ReimbursementRequestDAOImpl;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class LoginTests {
 
-	Login login = new Login();
+	EmployeeDAOImpl edi = new EmployeeDAOImpl();
+	ReimbursementRequestDAOImpl rdi = new ReimbursementRequestDAOImpl();
 
-	@Test
-	public void AemployeeLoginFailureTest() {
-		assertFalse(login.checkEmployeeLoginCredentials("wrong", "wrong", 0));
-	}
-
-	@Test
-	public void BmanagerLoginFailureTest() {
-		assertFalse(login.checkManagerLoginCredentials("wrong", "wrong", 0));
-	}
-
-	@Test
-	public void CaddEmployeeTest() {
-		Employee e = new Employee(0, "Tony", "Danza", "whoseTheBoss@gmail.com", "the", "boss", 0, 0);
-		assertTrue(DAOUtility.tryAddEmployeeSQL(e));
-	}
-
-	@Test
-	public void DreturnEmployeeTest() {
-		Employee e = returnAllEmployeesByDptTest();
-		assertNotNull(DAOUtility.tryReturnEmployeeSQL(e.getEmployeeId()));
-	}
-
+	//a method used for a few of the tests on here
 	public Employee returnAllEmployeesByDptTest() {
 		List<Employee> tempList = new ArrayList<>();
-		tempList.addAll(DAOUtility.tryReturnAllEmployeesByDptSQL(0));
+		try {
+			tempList.addAll(edi.returnAllEmployeesByDptSQL(0));
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		
 		for (Employee e : tempList) {
 			if (e.getUserName().equals("the")) {
 				return e;
@@ -50,60 +35,107 @@ public class LoginTests {
 		}
 		return null;
 	}
+	
+	@Test(expected = Test.None.class)
+	public void CaddEmployeeTest() {
+		Employee e = new Employee(0, "Tony", "Danza", "whoseTheBoss@gmail.com", "the", "boss", 0, 0);
+		try {
+			edi.addEmployeeSQL(e);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
 
-	@Test
+	@Test(expected = Test.None.class)
+	public void DreturnEmployeeTest() {
+		Employee e = returnAllEmployeesByDptTest();
+		try {
+			edi.returnEmployeeSQL(e.getEmployeeId());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+
+	@Test(expected = Test.None.class)
 	public void EupdateEmployeeTest() {
 		Employee e = returnAllEmployeesByDptTest();
 		e.setEmail("newemail@gmail.com");
-		assertTrue(DAOUtility.tryUpdateEmployeeSQL(e));
+		try {
+			edi.updateEmployeeSQL(e);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 	}
 
-	@Test
+	@Test(expected=Test.None.class)
 	public void FaddReimbursementTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", null, 1,
-				e.getDepartmentId());
-		assertTrue(DAOUtility.tryAddReimbursementSQL(rr));
+		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", null, 1,e.getDepartmentId());
+		try {
+			rdi.addReimbursementSQL(rr);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 	}
 
-	@Test
+	@Test(expected=Test.None.class)
 	public void GReturnReimbursementByDptSQLTest() {
 		List<ReimbursementRequest> tempList = new ArrayList<>();
-		tempList.addAll(DAOUtility.tryReturnReimbursementRequestByDptSQL(2));
-		assertFalse(tempList.isEmpty());
+		try {
+			tempList.addAll(rdi.returnReimbursementRequestByDptSQL(2));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 
-	@Test
+	@Test(expected=Test.None.class)
 	public void HReturnAllReimbursementRequestsSQLTest() {
 		List<ReimbursementRequest> tempList = new ArrayList<>();
-		tempList.addAll(DAOUtility.tryReturnAllReimbursementRequestsSQL());
-		assertFalse(tempList.isEmpty());
+		try {
+			tempList.addAll(rdi.returnAllReimbursementRequestsSQL());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
-	@Test
+	@Test(expected=Test.None.class)
 	public void IReturnReimbursementRequestsbyEmployeeIDTest() {
-		List<ReimbursementRequest> tempList = new ArrayList<>();
-		/* Employee e = returnAllEmployeesByDptTest(); */
-		tempList.addAll(DAOUtility.tryReturnReimbursementRequestByEmployeeId(123));
-		assertFalse(tempList.isEmpty());
+		Employee e = returnAllEmployeesByDptTest();
+		try {
+			rdi.returnReimbursementRequestsByEmployeeID(e.getEmployeeId());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 	}
 
-	/*
-	 * @Test public void JremoveReimbursementRequestSQLTest() {
-	 * 
-	 * List<ReimbursementRequest> tempList = new ArrayList<>(); Employee e =
-	 * returnAllEmployeesByDptTest();
-	 * tempList.addAll(DAOUtility.tryReturnReimbursementRequestByEmployeeId(e.
-	 * getEmployeeId())); ReimbursementRequest rr = tempList.get(0);
-	 * 
-	 * assertTrue(DAOUtility.tryRemoveReimbursementRequestSQL(2)); }
-	 */
+	@Test(expected=Test.None.class)
+	public void JremoveReimbursementRequestSQLTest() {
 
-	@Test
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		Employee e = returnAllEmployeesByDptTest();
+		try {
+			tempList.addAll(rdi.returnReimbursementRequestsByEmployeeID(e.getEmployeeId()));
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		ReimbursementRequest rr = tempList.get(0);
+		try {
+			rdi.removeReimbusementRequestSQL(rr.getReimbursementId());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	@Test(expected=Test.None.class)
 	public void zDeleteEmployeeTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		assertTrue(DAOUtility.tryRemoveEmployeeSQL(e));
+		try {
+			edi.removeEmployeeSQL(e.getEmployeeId());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 }

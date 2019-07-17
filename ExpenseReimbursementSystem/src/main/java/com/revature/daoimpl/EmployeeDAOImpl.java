@@ -88,11 +88,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public void removeEmployeeSQL(Employee e) throws SQLException {
+	public void removeEmployeeSQL(int id) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "DELETE FROM EMPLOYEE WHERE ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, e.getEmployeeId());
+		ps.setInt(1, id);
 		ps.executeUpdate();
 
 	}
