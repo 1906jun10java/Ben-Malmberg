@@ -23,7 +23,7 @@ public class LoginTests {
 	public Employee returnAllEmployeesByDptTest() {
 		List<Employee> tempList = new ArrayList<>();
 		try {
-			tempList.addAll(edi.returnAllEmployeesByDptSQL(0));
+			tempList.addAll(edi.returnAllEmployeesSQL());
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}

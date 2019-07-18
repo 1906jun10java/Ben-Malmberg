@@ -53,13 +53,12 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	//returns a list of employees in a specific department
 	@Override
-	public List<Employee> returnAllEmployeesByDptSQL(int dptId) throws SQLException {
+	public List<Employee> returnAllEmployeesSQL() throws SQLException {
 		
 		List<Employee> employeeListByDpt = new ArrayList<>();
 		Connection conn = cf.getConnection();
 		String sql = "SELECT * FROM EMPLOYEE WHERE DEPARTMENT_ID = ?";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, dptId);
 		ResultSet rs = ps.executeQuery();
 		Employee e = null;
 		while(rs.next()) {

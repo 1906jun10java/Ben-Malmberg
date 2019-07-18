@@ -5,11 +5,11 @@
    </head>
    <body>
       <h1>Employee Reimbursement Login Page</h1>
-      <form action = "" method ="POST">
+      <form method ="post">
          <h3>Enter UserName</h3>   
-         <input type = "text" id="EmployeeUserName" placeholder="Username" pattern="{,32}"/><br>
+         <input type = "text" id="EmployeeUserName" placeholder="Username"/><br>
          <h3>Enter Password With at least one number, one capital letter and one lower case letter that is at least 8 characters long</h3>
-         <input type = "password" id="EmployeePassword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/><br>
+         <input type = "password" id="EmployeePassword" placeholder="Password" /><br>
          <button id="submitLoginRequest" title="Submit Login Request">Login</button>
       </form>
    </body>
