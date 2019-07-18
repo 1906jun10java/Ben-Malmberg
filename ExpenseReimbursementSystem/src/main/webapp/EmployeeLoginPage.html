@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <title>Login</title>
       <script src="EmployeeLogin.js"></script>
    </head>
    <body>
       <h1>Employee Reimbursement Login Page</h1>
-      <form method ="post">
+      <form action="login" method ="POST">
          <h3>Enter UserName</h3>   
-         <input type = "text" id="EmployeeUserName" placeholder="Username"/><br>
+         <input type = "text" name="EmployeeUserName" placeholder="Username"/><br>
          <h3>Enter Password With at least one number, one capital letter and one lower case letter that is at least 8 characters long</h3>
-         <input type = "password" id="EmployeePassword" placeholder="Password" /><br>
-         <button id="submitLoginRequest" title="Submit Login Request">Login</button>
+         <input type = "password" name="EmployeePassword" placeholder="Password" /><br>
+         <button  type ="submit" value ="login" title="Submit Login Request">Login</button>
       </form>
    </body>
 </html>
