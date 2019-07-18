@@ -57,7 +57,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 		List<Employee> employeeListByDpt = new ArrayList<>();
 		Connection conn = cf.getConnection();
-		String sql = "SELECT * FROM EMPLOYEE WHERE DEPARTMENT_ID = ?";
+		String sql = "SELECT * FROM EMPLOYEE";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		Employee e = null;
