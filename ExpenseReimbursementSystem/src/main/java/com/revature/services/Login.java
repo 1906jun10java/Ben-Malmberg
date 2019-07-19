@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 
@@ -38,7 +37,5 @@ public class Login {
 		return false;
 	}
 
-	public Employee makeMeACookie(String username) {
-		
-	}
+
 }

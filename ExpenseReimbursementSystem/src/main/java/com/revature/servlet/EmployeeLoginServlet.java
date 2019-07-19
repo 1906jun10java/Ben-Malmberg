@@ -1,15 +1,17 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-
+import com.revature.beans.Employee;
+import com.revature.daoimpl.EmployeeDAOImpl;
 import com.revature.services.Login;
 
 
@@ -25,13 +27,16 @@ public class EmployeeLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		Login login = new Login();
+		HttpSession session = request.getSession();
 		
 		System.out.println(request.getParameter("EmployeeUserName"));
 		System.out.println(request.getParameter("EmployeePassword"));
-		
-		boolean test = login.loginTest(request.getParameter("EmployeeUserName"), request.getParameter("EmployeePassword"));
+		String username = request.getParameter("EmployeeUserName");
+		String password = request.getParameter("EmployeePassword");
+		boolean test = login.loginTest(username,password );
 		
 		if(test == true) {
+			session = makeMeACookie(username, session);
 			response.sendRedirect("EmployeeHomePage.html");
 		}
 		else {
@@ -39,6 +44,24 @@ public class EmployeeLoginServlet extends HttpServlet {
 		}
 		
 		
+	}
+	public HttpSession makeMeACookie(String username,HttpSession session) {
+		EmployeeDAOImpl edi = new EmployeeDAOImpl();
+		Employee e = null;
+		try {
+			e = edi.returnEmployeeSQL(username);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		session.setAttribute("departmentId",e.getDepartmentId());
+		session.setAttribute("firstName", e.getFirstName());
+		session.setAttribute("lastName", e.getLastName());
+		session.setAttribute("email", e.getEmail());
+		session.setAttribute("username", e.getUserName());
+		session.setAttribute("reportsTo", e.getReportsTo());
+		session.setAttribute("managerOf",e.getManagerOf());
+		
+		return session;
 	}
 
 }

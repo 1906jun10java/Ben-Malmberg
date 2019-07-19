@@ -2,6 +2,18 @@ package com.revature.beans;
 
 public class Employee {
 	
+	public Employee(int departmentId, String firstName, String lastName, String email, String userName, int reportsTo,
+			int managerOf) {
+		super();
+		this.departmentId = departmentId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.userName = userName;
+		this.reportsTo = reportsTo;
+		this.managerOf = managerOf;
+	}
+
 	public Employee(int departmentId, String firstName, String lastName, String email, String userName,
 			String password, int reportsTo, int dptNumber) {
 		super();
@@ -14,6 +26,8 @@ public class Employee {
 		this.reportsTo = reportsTo;
 		this.managerOf = dptNumber;
 	}
+	
+	
 
 
 	private int employeeId;

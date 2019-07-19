@@ -7,7 +7,7 @@ import com.revature.beans.Employee;
 
 public interface EmployeeDAO {
 	
-	public Employee returnEmployeeSQL(int id)
+	public Employee returnEmployeeSQL(String username)
 	throws SQLException;
 	
 	public void addEmployeeSQL(Employee e)

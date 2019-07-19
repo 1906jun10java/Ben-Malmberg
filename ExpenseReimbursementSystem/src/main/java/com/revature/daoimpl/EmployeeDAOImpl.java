@@ -19,11 +19,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		
 	//returns an employee with a matching id number
 	@Override
-	public Employee returnEmployeeSQL(int id) throws SQLException {
+	public Employee returnEmployeeSQL(String username) throws SQLException {
 		Connection conn = cf.getConnection();			
-		String sql  = "Select * FROM EMPLOYEE WHERE ID = ? ";
+		String sql  = "Select * FROM EMPLOYEE WHERE USERNAME = ? ";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setInt(1, id);
+		ps.setString(1, username);
 		ResultSet rs  = ps.executeQuery();
 		Employee e = null;
 		while(rs.next()) {

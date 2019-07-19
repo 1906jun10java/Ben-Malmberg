@@ -50,7 +50,7 @@ public class LoginTests {
 	public void DreturnEmployeeTest() {
 		Employee e = returnAllEmployeesByDptTest();
 		try {
-			edi.returnEmployeeSQL(e.getEmployeeId());
+			edi.returnEmployeeSQL(e.getUserName());
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
