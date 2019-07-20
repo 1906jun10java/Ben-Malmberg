@@ -43,10 +43,18 @@ function tableGenerator(data) {
         cell.innerHTML = data[i].reason;
 
         cell = row.insertCell(-1);
-        cell.innerHTML = data[i].status;
-
+        if(data[i].status === 1){
+        	cell.innerHTML = "Pending";
+        }
+        else if(data[i].status === 2){
+        	cell.innerHTML = "Approved";
+        }
+        else{
+        	cell.innerHTML = "Denied";
+        }
     }
-
+    
+    //replace the empty div with a table 
     let newTable = document.getElementById("makeMeATable");
     newTable.innerHTML = "";
     newTable.appendChild(table);
