@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
+
+
+
 @WebServlet("/employeeHomePage")
 public class EmployeeHomePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +20,7 @@ public class EmployeeHomePage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		HttpSession session = request.getSession(false);
 		if(session != null) {
+
 			request.getRequestDispatcher("EmployeeHomePage.html").forward(request, response);
 		}
 		else {

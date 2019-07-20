@@ -9,7 +9,7 @@ function determineUser(){
         return response.json();
     }).then(function(data){
         user = data;
-        document.getElementById("username").innerText = "username: " + user.username;
+        document.getElementById("welcome").innerText = "Welcome " + user.firstName + " "+ user.lastName;
 
     })
 }

@@ -4,10 +4,18 @@
         <script src ="EmployeeHomePage.js"></script>
     </head>
     <body>
-        <h1>SUCCESS!</h1><br><br>
-        <h2 id ="username"></h2>
-        <form action="logout" method="get">
+        <h1 id ="welcome"></h1><br><br>
+
+        <form action="logout" method="GET">
             <button type="submit" value="logout">Log Out</button>
+        </form>
+        <h4>Make a reimbursement request</h4>
+        <form action="submitRequest" method ="POST">
+            <p>Enter dollar amount</p>
+            <p>$<input type="number" min="0.01" step="0.01"></p>
+            <p>Enter brief reason for request</p>
+            <input type="text" value="brief description goes here">
+            <button type="submit" value="submit request">Submit</button>
         </form>
     </body>
 </html>
