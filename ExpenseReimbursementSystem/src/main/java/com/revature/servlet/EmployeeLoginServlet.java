@@ -37,7 +37,7 @@ public class EmployeeLoginServlet extends HttpServlet {
 		
 		if(test == true) {
 			session = makeMeACookie(username, session);
-			response.sendRedirect("EmployeeHomePage.html");
+			response.sendRedirect("employeeHomePage");
 		}
 		else {
 			response.sendRedirect("login");

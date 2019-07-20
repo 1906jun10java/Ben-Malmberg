@@ -3,12 +3,12 @@
   <display-name>ServletDemo</display-name>
   <servlet>
     <description></description>
-    <display-name>EmployeeLogoutServlet</display-name>
-    <servlet-name>EmployeeLogoutServlet</servlet-name>
-    <servlet-class>com.revature.servlet.EmployeeLogoutServlet</servlet-class>
+    <display-name>Session</display-name>
+    <servlet-name>Session</servlet-name>
+    <servlet-class>com.revature.servlet.Session</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>EmployeeLogoutServlet</servlet-name>
-    <url-pattern>/EmployeeLogoutServlet</url-pattern>
+    <servlet-name>Session</servlet-name>
+    <url-pattern>/Session</url-pattern>
   </servlet-mapping>
 </web-app>
