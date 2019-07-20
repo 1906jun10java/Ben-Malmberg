@@ -13,13 +13,12 @@ public class ReimbursementRequest {
 	private int status;
 	private int dptId;
 	
-	public ReimbursementRequest(int employeeId, double dollarAmount, String reason, Blob imageFile,
-			int status,int dptId) {
+	public ReimbursementRequest(int employeeId, double dollarAmount, String reason, int status, int dptId) {
 		super();
 		this.employeeId = employeeId;
 		this.dollarAmount = dollarAmount;
 		this.reason = reason;
-		this.imageFile = imageFile;
+		/* this.imageFile = imageFile; */
 		this.status = status;
 		this.setDptId(dptId);
 	}	

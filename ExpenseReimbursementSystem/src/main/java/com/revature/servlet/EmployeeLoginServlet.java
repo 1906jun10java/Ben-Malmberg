@@ -29,8 +29,6 @@ public class EmployeeLoginServlet extends HttpServlet {
 		Login login = new Login();
 		HttpSession session = request.getSession();
 		
-		System.out.println(request.getParameter("EmployeeUserName"));
-		System.out.println(request.getParameter("EmployeePassword"));
 		String username = request.getParameter("EmployeeUserName");
 		String password = request.getParameter("EmployeePassword");
 		boolean test = login.loginTest(username,password );
@@ -53,6 +51,7 @@ public class EmployeeLoginServlet extends HttpServlet {
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+		session.setAttribute("eId", e.getEmployeeId());
 		session.setAttribute("departmentId",e.getDepartmentId());
 		session.setAttribute("firstName", e.getFirstName());
 		session.setAttribute("lastName", e.getLastName());

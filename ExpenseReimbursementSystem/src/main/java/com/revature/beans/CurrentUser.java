@@ -2,7 +2,7 @@ package com.revature.beans;
 
 public class CurrentUser {
 
-	
+	private String employeeId;
 	private String departmentID;
 	private String firstName;
 	private String lastName;
@@ -11,9 +11,10 @@ public class CurrentUser {
 	private String reportsTo;
 	private String managerOf;
 	
-	public CurrentUser(String departmentID, String firstName, String lastName, String email, String username,
+	public CurrentUser(String employeeId,String departmentID, String firstName, String lastName, String email, String username,
 			String reportsTo, String managerOf) {
 		super();
+		this.employeeId = employeeId;
 		this.departmentID = departmentID;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -65,5 +66,15 @@ public class CurrentUser {
 	}
 	public void setManagerOf(String managerOf) {
 		this.managerOf = managerOf;
+	}
+
+
+	public String getEmployeeId() {
+		return employeeId;
+	}
+
+
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 }

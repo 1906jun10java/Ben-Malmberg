@@ -20,6 +20,7 @@ public class Session extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		
 		if (session != null) {
+			String employeeID = session.getAttribute("eId").toString();
 			String departmentID = session.getAttribute("departmentId").toString();
 			String firstName = session.getAttribute("firstName").toString();
 			String lastName = session.getAttribute("lastName").toString();
@@ -27,7 +28,7 @@ public class Session extends HttpServlet {
 			String username = session.getAttribute("username").toString();
 			String reportsTo = session.getAttribute("reportsTo").toString();
 			String managerOf = session.getAttribute("managerOf").toString();
-			CurrentUser c = new CurrentUser(departmentID, firstName, lastName, email, username, reportsTo, managerOf);
+			CurrentUser c = new CurrentUser(employeeID ,departmentID, firstName, lastName, email, username, reportsTo, managerOf);
 			response.getWriter().write((new ObjectMapper()).writeValueAsString(c));
 		} 
 		else {

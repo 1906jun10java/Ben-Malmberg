@@ -25,8 +25,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		ResultSet rs = ps.executeQuery();
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
-					rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getInt(6), rs.getInt(7));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -44,8 +43,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
-					rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6), rs.getInt(7));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -89,8 +87,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getBlob(5), rs.getInt(6),
-					rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6),rs.getInt(7));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}

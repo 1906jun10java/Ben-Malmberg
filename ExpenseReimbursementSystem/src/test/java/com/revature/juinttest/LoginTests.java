@@ -71,7 +71,7 @@ public class LoginTests {
 	@Test(expected=Test.None.class)
 	public void FaddReimbursementTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", null, 1,e.getDepartmentId());
+		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", 1,e.getDepartmentId());
 		try {
 			rdi.addReimbursementSQL(rr);
 		} catch (SQLException e1) {
