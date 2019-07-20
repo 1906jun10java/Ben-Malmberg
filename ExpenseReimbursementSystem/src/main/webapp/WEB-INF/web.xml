@@ -11,4 +11,14 @@
     <servlet-name>Session</servlet-name>
     <url-pattern>/Session</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SubmitRequest</display-name>
+    <servlet-name>SubmitRequest</servlet-name>
+    <servlet-class>com.revature.servlet.SubmitRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubmitRequest</servlet-name>
+    <url-pattern>/SubmitRequest</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -12,9 +12,9 @@
         <h4>Make a reimbursement request</h4>
         <form action="submitRequest" method ="POST">
             <p>Enter dollar amount</p>
-            <p>$<input type="number" min="0.01" step="0.01"></p>
+            <p>$<input name ="dollarAmount" type="number" min="0.01" step="0.01"></p>
             <p>Enter brief reason for request</p>
-            <input type="text" value="brief description goes here">
+            <input name ="reason" type="text" value="brief description goes here">
             <button type="submit" value="submit request">Submit</button>
         </form>
     </body>
