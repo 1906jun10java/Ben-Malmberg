@@ -1,34 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ServletDemo</display-name>
-  <servlet>
-    <description></description>
-    <display-name>Session</display-name>
-    <servlet-name>Session</servlet-name>
-    <servlet-class>com.revature.servlet.Session</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Session</servlet-name>
-    <url-pattern>/Session</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>SubmitRequest</display-name>
-    <servlet-name>SubmitRequest</servlet-name>
-    <servlet-class>com.revature.servlet.SubmitRequest</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SubmitRequest</servlet-name>
-    <url-pattern>/SubmitRequest</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ViewPendingRequests</display-name>
-    <servlet-name>ViewPendingRequests</servlet-name>
-    <servlet-class>com.revature.servlet.ViewPendingRequests</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewPendingRequests</servlet-name>
-    <url-pattern>/ViewPendingRequests</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
