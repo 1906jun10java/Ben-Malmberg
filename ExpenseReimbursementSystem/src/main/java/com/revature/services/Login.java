@@ -27,6 +27,9 @@ public class Login {
 	
 	
 		for(Employee e :loginVerify) {
+			if(e.getUserName() == null) {
+				return false;
+			}
 			if(e.getUserName().equals(username)){ 
 				if(e.getPassword().equals(password)) {
 					return true;

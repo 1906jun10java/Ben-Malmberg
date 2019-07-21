@@ -1,63 +1,62 @@
 let user = {};
 
-window.onload = function(){
-    determineUser();
+window.onload = function() {
+	document.getElementById('viewInfo')
+			.addEventListener('click', determineUser);
 }
 
-function determineUser(){
-    fetch("http://localhost:8087/ExpenseReimbursementSystem/session").then(function(response){
-        return response.json();
-    }).then(function(data){
-        tableGenerator(data);
-        user = data;
-        document.getElementById("welcome").innerText = "Welcome " + user.firstName + " "+ user.lastName;
+function determineUser() {
+	fetch("http://localhost:8087/ExpenseReimbursementSystem/session").then(
+			function(response) {
+				return response.json();
+			}).then(
+			function(data) {
+				var user = data;
+				tableGenerator(user);
+				document.getElementById("welcome").innerText = "Welcome "
+						+ user.firstName + " " + user.lastName;
 
-    })
+			})
 }
 function tableGenerator(data) {
 
-    //Create a HTML Table element.
-    let table = document.createElement("TABLE");
-    table.border = "1";
+	// Create a HTML Table element.
+	let table = document.createElement("TABLE");
+	table.border = "1";
 
-    //Add the header row.
-    let row = table.insertRow(-1);
-    let headerCell = document.createElement("TH");
-    
-    headerCell = row.insertCell(-1);
-    headerCell.innerHTML = "First Name";
+	// Add the header row.
+	let row = table.insertRow(-1);
+	let headerCell = document.createElement("TH");
 
-    headerCell = row.insertCell(-1);
-    headerCell.innerHTML = "Last Name";
-    
-    headerCell = row.insertCell(-1);
-    headerCell.innerHTML = "Email";
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "First Name";
 
-    headerCell = row.insertCell(-1);
-    headerCell.innerHTML = "Department";
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Last Name";
 
- 
-    //Add the data rows.
-    for (let i = 1; i < data.length; i++) {
-        row = table.insertRow(-1);
-        
-       let cell = row.insertCell(-1);
-        cell.innerHTML = "$"+data[i].firstName;
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Email";
 
-        cell = row.insertCell(-1);
-        cell.innerHTML = data[i].lastName;
+	headerCell = row.insertCell(-1);
+	headerCell.innerHTML = "Department";
 
-        cell = row.insertCell(-1);
-        cell.innerHTML = data[i].email;
+	// Add the data rows.
+	row = table.insertRow(-1);
 
-        cell = row.insertCell(-1);
-        cell.innerHTML = data[i].departmentId;
+	let cell = row.insertCell(-1);
+	cell.innerHTML = data.firstName;
 
+	cell = row.insertCell(-1);
+	cell.innerHTML = data.lastName;
 
-    }
-    
-    //replace the empty div with a table 
-    let newTable = document.getElementById("EmployeeTable");
-    newTable.innerHTML = "";
-    newTable.appendChild(table);
+	cell = row.insertCell(-1);
+	cell.innerHTML = data.email;
+
+	cell = row.insertCell(-1);
+	cell.innerHTML = data.departmentId;
+
+	// replace the empty div with a table
+	let newTable = document.getElementById("EmployeeTable");
+	newTable.innerHTML = "";
+	newTable.appendChild(table);
 }

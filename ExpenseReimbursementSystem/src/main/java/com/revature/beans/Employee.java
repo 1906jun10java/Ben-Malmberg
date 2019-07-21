@@ -128,6 +128,13 @@ public class Employee {
 		this.managerOf = dptNumber;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", departmentId=" + departmentId + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", email=" + email + ", userName=" + userName + ", password=" + password
+				+ ", reportsTo=" + reportsTo + ", managerOf=" + managerOf + "]";
+	}
+
 
 
 	

@@ -11,6 +11,7 @@
             <button type="submit" value="logout">Log Out</button>
         </form>
         <h4>Make a reimbursement request</h4>
+        
         <form action="submitRequest" method ="POST">
             <p>Enter dollar amount</p>
             <p>$<input name ="dollarAmount" type="number" min="0.01" step="0.01"></p>
@@ -18,8 +19,21 @@
             <input name ="reason" type="text">
             <button type="submit" value="submit request">Submit</button>
         </form>
+        
         <button id="viewRequests">ReturnRequests</button>
         <div id ="makeMeATable"></div>
+        
+        <button id="viewInfo">view my info</button>
         <div id ="EmployeeTable"></div>
+        
+        <form action="updateInfo" method="GET">
+        	<h4>Username</h4><br>
+        	<input name="username" type="text"><br>
+        	<h4>Password</h4><br>
+        	<input name="password" type="password"><br>
+        	<h4>email</h4><br>
+        	<input name="email" type ="text"><br>
+        	<button type="submit" value="update info">Submit</button>
+        </form>
     </body>
 </html>
