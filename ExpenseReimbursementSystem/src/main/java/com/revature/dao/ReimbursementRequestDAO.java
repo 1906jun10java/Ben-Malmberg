@@ -3,6 +3,7 @@ package com.revature.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.beans.Employee;
 import com.revature.beans.ReimbursementRequest;
 
 public interface ReimbursementRequestDAO {
@@ -21,5 +22,7 @@ public interface ReimbursementRequestDAO {
 	
 	public List<ReimbursementRequest> returnReimbursementRequestsByEmployeeID(int id)
 	throws SQLException;
+
+	void updateReimbursementSQL(ReimbursementRequest rr) throws SQLException;
 
 }

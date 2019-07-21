@@ -32,5 +32,37 @@ public class ReimbursementUtility {
 			return null;
 		}
 	}
+	
+	public List<ReimbursementRequest> returnRequestsByDptId(int id){
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		try {
+			tempList.addAll(rrdi.returnReimbursementRequestByDptSQL(id));
+			return tempList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void updateReimbursementRequest(int reid) {
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		try {
+			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		ReimbursementRequest target = null;
+		for(ReimbursementRequest rr :tempList) {
+			if(rr.getReimbursementId() == reid) {
+				target = rr;
+			}
+		}
+		
+		try {
+			rrdi.updateReimbursementSQL(target);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
