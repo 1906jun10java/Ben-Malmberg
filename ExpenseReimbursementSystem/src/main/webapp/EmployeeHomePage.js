@@ -2,7 +2,6 @@ window.onload = function() {
 	determineUser();
 	document.getElementById('viewInfo').addEventListener('click',tableGenerator);
 	document.getElementById('viewRequests').addEventListener('click',getReqeusts);
-	document.getElementById('requestsByDpt').addEventListener('click',pendingManagerTableGenerator);
 }
 
 const URL = "http://localhost:8087/ExpenseReimbursementSystem/viewRequests";
@@ -123,67 +122,3 @@ function rTableGenerator(data1) {
 	newTable.appendChild(table);
 }
 
-function pendingManagerTableGenerator() {
-	fetch("http://localhost:8087/ExpenseReimbursementSystem/managerRequestsByDpt").then(
-			function(response) {
-				let data = response.json();
-				return data;
-			}).then(function(data) {
-				
-		console.log(data);
-		// Create a HTML Table element.
-		let table = document.createElement("TABLE");
-		table.border = "1";
-
-		// Add the header row.
-		let row = table.insertRow(-1);
-		let headerCell = document.createElement("TH");
-
-		headerCell = row.insertCell(-1);
-		headerCell.innerHTML = "EmployeeId";
-		
-		headerCell = row.insertCell(-1);
-		headerCell.innerHTML = "Dollar Amount";
-
-		headerCell = row.insertCell(-1);
-		headerCell.innerHTML = "Reason";
-
-		headerCell = row.insertCell(-1);
-		headerCell.innerHTML = "Status";
-
-		// Add the data rows.
-		for (let i = 1; i < data.length; i++) {
-			row = table.insertRow(-1);
-
-			let cell = row.insertCell(-1);
-			cell.innerHTML = data[i].employeeId;
-			
-			cell = row.insertCell(-1);
-			cell.innerHTML = "$" + data[i].dollarAmount;
-
-			cell = row.insertCell(-1);
-			cell.innerHTML = data[i].reason;
-
-			cell = row.insertCell(-1);
-			if (data[i].status === 1) {
-				cell.innerHTML = "Pending";
-			} else if (data1[i].status === 2) {
-				cell.innerHTML = "Approved";
-			} else {
-				cell.innerHTML = "Denied";
-			}
-			let acceptButton = document.createElement("BUTTON");
-			acceptButton.type="submit";
-			acceptButton.value =data[i].reimbursementId;
-			acceptButton.innerHTML="ApproveReimbursement";
-			acceptButton.id="accept";
-			//let rejectButton = document.createElement("BUTTON");
-			row.appendChild(acceptButton);
-		}
-
-		// replace the empty div with a table
-		let newTable = document.getElementById("managerViewdpt");
-		newTable.innerHTML = "";
-		newTable.appendChild(table);
-	})
-}

@@ -72,18 +72,14 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public void updateEmployeeSQL(Employee e) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql ="{CALL UPDATE_EMPLOYEE(?,?,?,?,?,?,?,?,?)";
-		CallableStatement ps = conn.prepareCall(sql);
-		ps.setInt(1, e.getEmployeeId());
-		ps.setInt(2, e.getDepartmentId());
-		ps.setString(3, e.getFirstName());
-		ps.setString(4, e.getLastName());
-		ps.setString(5, e.getEmail());
-		ps.setString(6, e.getUserName());
-		ps.setString(7, e.getPassword());
-		ps.setInt(8,e.getReportsTo());
-		ps.setInt(9, e.getManagerOf());
-		ps.execute();
+		String sql ="UPDATE EMPLOYEE SET USERNAME = ?,PASSWORD = ?,EMAIL = ? WHERE ID = ? ";
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		ps.setString(1, e.getUserName());
+		ps.setString(2, e.getPassword());
+		ps.setString(3, e.getEmail());
+		ps.setInt(4, e.getEmployeeId());
+		ps.executeUpdate();
 	}
 
 	@Override

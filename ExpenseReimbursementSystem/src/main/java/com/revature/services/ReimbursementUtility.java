@@ -44,7 +44,7 @@ public class ReimbursementUtility {
 		}
 	}
 	
-	public void updateReimbursementRequest(int reid) {
+	public void approveReimbursementRequest(int reid) {
 		List<ReimbursementRequest> tempList = new ArrayList<>();
 		try {
 			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
@@ -57,7 +57,35 @@ public class ReimbursementUtility {
 				target = rr;
 			}
 		}
+		if(target == null) {
+			return;
+		}
 		
+		target.setStatus(2);
+		try {
+			rrdi.updateReimbursementSQL(target);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public void denyReimbursementRequest(int reid) {
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		try {
+			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		ReimbursementRequest target = null;
+		for(ReimbursementRequest rr :tempList) {
+			if(rr.getReimbursementId() == reid) {
+				target = rr;
+			}
+		}
+		if(target == null) {
+			return;
+		}
+		
+		target.setStatus(3);
 		try {
 			rrdi.updateReimbursementSQL(target);
 		} catch (SQLException e) {

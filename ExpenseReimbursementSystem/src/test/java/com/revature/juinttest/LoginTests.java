@@ -137,5 +137,16 @@ public class LoginTests {
 			e1.printStackTrace();
 		}
 	}
-
+	
+	@Test(expected=Test.None.class)
+	public void AupdateRe() {
+		ReimbursementRequest rr = new ReimbursementRequest(111, 20.00, "NO WIFIN", 3,1);
+		rr.setReimbursementId(70);
+		try {
+			rdi.updateReimbursementSQL(rr);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

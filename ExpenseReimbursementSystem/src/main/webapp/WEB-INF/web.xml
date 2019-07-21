@@ -11,4 +11,14 @@
     <servlet-name>UpdateInfo</servlet-name>
     <url-pattern>/UpdateInfo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Manager</display-name>
+    <servlet-name>Manager</servlet-name>
+    <servlet-class>com.revature.servlet.Manager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Manager</servlet-name>
+    <url-pattern>/Manager</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -23,9 +23,9 @@ public class ApproveReimbursement extends HttpServlet {
 		if(session != null) {
 			ReimbursementUtility ru = new ReimbursementUtility();
 			ParseMethods pu = new ParseMethods();
-			String rawREID = request.getAttribute("reimbursementId").toString();
+			String rawREID = request.getParameter("id");
 			int reid = pu.tryParseInt(rawREID);
-			ru.updateReimbursementRequest(reid);
+			ru.approveReimbursementRequest(reid);
 			response.sendRedirect("employeeHomePage");
 			
 		}
