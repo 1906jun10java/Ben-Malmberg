@@ -44,7 +44,8 @@ public class SubmitRequest extends HttpServlet {
 			double dollarAmount = pm.tryParseDouble(rawDollarAmount);
 			int eID = pm.tryParseInt(rawEID);
 			int dptId = pm.tryParseInt(rawDptId);
-			ReimbursementRequest rr = new ReimbursementRequest(eID,dollarAmount,reason,1 , dptId);
+
+			ReimbursementRequest rr = new ReimbursementRequest(eID,dollarAmount,reason,1 , dptId, 0);
 			boolean test = ru.generateReimbursement(rr);
 			if(test == true) {
 				response.setStatus(200);

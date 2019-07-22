@@ -12,8 +12,11 @@ public class ReimbursementRequest {
 	private Blob imageFile;
 	private int status;
 	private int dptId;
+	private int approvedBy;
 	
-	public ReimbursementRequest(int employeeId, double dollarAmount, String reason, int status, int dptId) {
+
+
+	public ReimbursementRequest(int employeeId, double dollarAmount, String reason, int status, int dptId,int approvedBy) {
 		super();
 		this.employeeId = employeeId;
 		this.dollarAmount = dollarAmount;
@@ -21,8 +24,16 @@ public class ReimbursementRequest {
 		/* this.imageFile = imageFile; */
 		this.status = status;
 		this.setDptId(dptId);
+		this.setApprovedBy(approvedBy);
 	}	
 	
+	public int getApprovedBy() {
+		return approvedBy;
+	}
+
+	public void setApprovedBy(int approvedBy) {
+		this.approvedBy = approvedBy;
+	}
 	public int getReimbursementId() {
 		return reimbursementId;
 	}
@@ -71,7 +82,7 @@ public class ReimbursementRequest {
 	public String toString() {
 		return "ReimbursementRequest [reimbursementId=" + reimbursementId + ", employeeId=" + employeeId
 				+ ", dollarAmount=" + dollarAmount + ", reason=" + reason + ", imageFile=" + imageFile + ", status="
-				+ status + ", dptId=" + dptId + "]";
+				+ status + ", dptId=" + dptId + ", approvedBy=" + approvedBy + "]";
 	}
 
 

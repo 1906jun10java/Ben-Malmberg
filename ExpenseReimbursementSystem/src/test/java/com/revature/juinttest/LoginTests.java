@@ -71,7 +71,7 @@ public class LoginTests {
 	@Test(expected=Test.None.class)
 	public void FaddReimbursementTest() {
 		Employee e = returnAllEmployeesByDptTest();
-		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", 1,e.getDepartmentId());
+		ReimbursementRequest rr = new ReimbursementRequest(e.getEmployeeId(), 20.00, "test", 1,e.getDepartmentId(),1);
 		try {
 			rdi.addReimbursementSQL(rr);
 		} catch (SQLException e1) {
@@ -140,7 +140,7 @@ public class LoginTests {
 	
 	@Test(expected=Test.None.class)
 	public void AupdateRe() {
-		ReimbursementRequest rr = new ReimbursementRequest(111, 20.00, "NO WIFIN", 3,1);
+		ReimbursementRequest rr = new ReimbursementRequest(111, 20.00, "NO WIFIN", 3,1,1);
 		rr.setReimbursementId(70);
 		try {
 			rdi.updateReimbursementSQL(rr);

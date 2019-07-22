@@ -10,7 +10,7 @@ function pendingManagerTableGenerator() {
 				return data;
 			}).then(function(data) {
 				
-		console.log(data);
+
 		// Create a HTML Table element.
 		let table = document.createElement("TABLE");
 		table.border = "1";
@@ -33,6 +33,9 @@ function pendingManagerTableGenerator() {
 
 		headerCell = row.insertCell(-1);
 		headerCell.innerHTML = "Status";
+		
+		headerCell = row.insertCell(-1);
+		headerCell.innerHTML = "ApprovedBy";
 
 		// Add the data rows.
 		for (let i = 1; i < data.length; i++) {
@@ -57,6 +60,9 @@ function pendingManagerTableGenerator() {
 			} else {
 				cell.innerHTML = "Denied";
 			}
+			
+			cell = row.insertCell(-1);
+			cell.innerHTML = data[i].approvedBy;
 
 		}
 

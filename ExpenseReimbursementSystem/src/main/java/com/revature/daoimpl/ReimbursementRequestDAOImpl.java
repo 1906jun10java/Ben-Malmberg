@@ -25,7 +25,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		ResultSet rs = ps.executeQuery();
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getInt(6), rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getDouble(3), rs.getString(4), rs.getInt(6), rs.getInt(7),rs.getInt(8));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -43,7 +43,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6), rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6), rs.getInt(7),rs.getInt(8));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}
@@ -53,7 +53,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 	@Override
 	public void addReimbursementSQL(ReimbursementRequest rr) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql = "{ CALL INSERT_REIMBURSEMENT(?,?,?,?,?)";
+		String sql = "{ CALL INSERT_REIMBURSEMENT(?,?,?,?,?,?)";
 		CallableStatement ps = conn.prepareCall(sql);
 		ps.setInt(1, rr.getEmployeeId());
 		ps.setDouble(2, rr.getDollarAmount());
@@ -87,7 +87,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 
 		ReimbursementRequest rr = null;
 		while (rs.next()) {
-			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6),rs.getInt(7));
+			rr = new ReimbursementRequest(rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getInt(6),rs.getInt(7),rs.getInt(8));
 			rr.setReimbursementId(rs.getInt(1));
 			reimbursementList.add(rr);
 		}

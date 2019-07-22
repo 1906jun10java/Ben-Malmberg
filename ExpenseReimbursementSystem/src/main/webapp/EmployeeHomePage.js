@@ -34,7 +34,7 @@ function tableGenerator() {
 				let data = response.json();
 				return data;
 			}).then(function(data) {
-
+				console.log(data);
 		// Create a HTML Table element.
 		let table = document.createElement("TABLE");
 		table.border = "1";
@@ -68,7 +68,7 @@ function tableGenerator() {
 		cell.innerHTML = data.email;
 
 		cell = row.insertCell(-1);
-		cell.innerHTML = data.departmentId;
+		cell.innerHTML = data.departmentID;
 
 		// replace the empty div with a table
 		let newTable = document.getElementById("EmployeeTable");
@@ -79,6 +79,7 @@ function tableGenerator() {
 
 function rTableGenerator(data1) {
 
+	console.log(data1);
 	// Create a HTML Table element.
 	let table = document.createElement("TABLE");
 	table.border = "1";
