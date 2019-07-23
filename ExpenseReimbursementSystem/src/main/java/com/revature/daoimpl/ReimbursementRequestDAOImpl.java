@@ -96,10 +96,11 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 	@Override
 	public void updateReimbursementSQL(ReimbursementRequest rr) throws SQLException {
 		Connection conn = cf.getConnection();
-		String sql ="UPDATE REIMBURSEMENT_REQUEST SET STATUS = ? WHERE REID = ?" ;
+		String sql ="UPDATE REIMBURSEMENT_REQUEST SET STATUS = ?,APPROVED_BY = ?  WHERE REID = ?" ;
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, rr.getStatus());
-		ps.setInt(2, rr.getReimbursementId());
+		ps.setInt(2, rr.getApprovedBy());
+		ps.setInt(3, rr.getReimbursementId());
 		ps.executeUpdate();
 	}
 

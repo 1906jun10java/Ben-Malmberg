@@ -21,4 +21,24 @@
     <servlet-name>Manager</servlet-name>
     <url-pattern>/Manager</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeDirectory</display-name>
+    <servlet-name>EmployeeDirectory</servlet-name>
+    <servlet-class>com.revature.servlet.EmployeeDirectory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeDirectory</servlet-name>
+    <url-pattern>/EmployeeDirectory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReturnByEmployee</display-name>
+    <servlet-name>ReturnByEmployee</servlet-name>
+    <servlet-class>com.revature.servlet.ReturnByEmployee</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReturnByEmployee</servlet-name>
+    <url-pattern>/ReturnByEmployee</url-pattern>
+  </servlet-mapping>
 </web-app>

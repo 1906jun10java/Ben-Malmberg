@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    	<meta charset="utf-8"/>
+    	<meta charset="UTF-8"/>
         <script src ="EmployeeHomePage.js"></script>
     </head>
     <body>
@@ -27,9 +27,17 @@
         <button id="viewRequests">ReturnRequests</button>
         <div id ="makeMeATable"></div>
         
+        <button id="generateDirectory">Generate Employee Directory</button>
+        <div id ="DirectoryTable"></div>
         
         <button id="viewInfo">view my info</button>
         <div id ="EmployeeTable"></div>
+        
+        <form name="byEmployee" onSubmit = "return  requestsByEmployeeGenerator()">
+        	<input id = 'textBox'>
+        	<button id = 'idButton'>Get Employee by Id</button> 
+       	</form>
+       	<div id="tableByEmployee"></div>
         
         <form action="updateInfo" method="GET">
         	<h4>Username</h4><br>

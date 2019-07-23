@@ -68,7 +68,7 @@ public class ReimbursementUtility {
 			e.printStackTrace();
 		}
 	}
-	public void denyReimbursementRequest(int reid) {
+	public void denyReimbursementRequest(int reid, int empId) {
 		List<ReimbursementRequest> tempList = new ArrayList<>();
 		try {
 			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
@@ -84,7 +84,7 @@ public class ReimbursementUtility {
 		if(target == null) {
 			return;
 		}
-		
+		target.setApprovedBy(empId);
 		target.setStatus(3);
 		try {
 			rrdi.updateReimbursementSQL(target);

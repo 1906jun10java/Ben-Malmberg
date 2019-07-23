@@ -24,8 +24,10 @@ public class DenyReimbursement extends HttpServlet{
 			ReimbursementUtility ru = new ReimbursementUtility();
 			ParseMethods pu = new ParseMethods();
 			String rawREID = request.getParameter("id");
+			String rawEmployeeID = session.getAttribute("eId").toString();
 			int reid = pu.tryParseInt(rawREID);
-			ru.denyReimbursementRequest(reid);
+			int empId = pu.tryParseInt(rawEmployeeID);
+			ru.denyReimbursementRequest(reid,empId);
 			response.sendRedirect("employeeHomePage");
 
 		} else {
