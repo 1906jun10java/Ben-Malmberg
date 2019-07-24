@@ -37,7 +37,7 @@ function tableGenerator() {
 				let data = response.json();
 				return data;
 			}).then(function(data) {
-				console.log(data);
+				
 		// Create a HTML Table element.
 		let table = document.createElement("TABLE");
 		table.border = "1";

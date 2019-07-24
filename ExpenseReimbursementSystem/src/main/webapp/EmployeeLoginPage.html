@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html>
    <head>
-   	  <meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="Website.css"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <title>Login</title>
    </head>
-   <body>
-      <h1>Employee Reimbursement Login Page</h1>
-      <form action="login" method ="POST">
-         <h3>Enter UserName</h3>   
-         <input type = "text" name="EmployeeUserName" placeholder="Username"/><br>
-         <h3>Enter Password With at least one number, one capital letter and one lower case letter that is at least 8 characters long</h3>
-         <input type = "password" name="EmployeePassword" placeholder="Password" /><br>
-         <button  type ="submit" value ="login" title="Submit Login Request">Login</button>
-      </form>
+   <body><br><br><br><br><br><br><br><br><br>
+      <div class = "container"></div>
+      <div class= "d-flex justify-content-center h-100">
+     <div class ="col -sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class = "jumbotron">
+         <h3>FacelessCorp</h3>
+         <h5>Where names don't matter and neither do you!</h5>
+         <form class ="form-signin" action="login" method ="POST">
+            <div>
+               <h5>Enter username</h5>   
+               <input type = "text" class = "form-control" name="EmployeeUserName"  placeholder="Username"/><br>
+            </div>
+            <div>
+               <h5>Enter Password</h5>
+               <input type = "password" class="form-control" name="EmployeePassword" placeholder="Password" /><br>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block"  type ="submit" value ="login" title="Submit Login Request">Login</button>
+         </form>
+      </div>
+      </div>
+      </div>
+      <div class = row></div>
    </body>
 </html>
