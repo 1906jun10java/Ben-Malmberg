@@ -6,11 +6,18 @@
         <script src ="EmployeeHomePage.js"></script>
     </head>
     <body>
-        <h1 id ="welcome"></h1><br><br>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <form action="logout" method="GET">
-            <button type="submit" value="logout">Log Out</button>
-        </form>
+       
+        <div class="taskbar">
+            <form action="logout" method="GET">
+                <button type="submit" value="logout">Log Out</button>
+            </form>
+        </div>
         <h4>Make a reimbursement request</h4>
         
         <form action="submitRequest" method ="POST">
@@ -47,7 +54,8 @@
         	<input name="password" type="password"><br>
         	<h4>email</h4><br>
         	<input name="email" type ="text"><br>
-        	<button type="submit" value="update info">Submit</button>
+            <button type="submit" value="update info">Submit</button>
+            <h1 id ="welcome"></h1><br><br>
         </form>
     </body>
 </html>

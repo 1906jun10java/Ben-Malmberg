@@ -4,6 +4,7 @@ window.onload = function() {
 	document.getElementById('viewInfo').addEventListener('click',tableGenerator);
 	document.getElementById('viewRequests').addEventListener('click',getReqeusts);
 	document.getElementById('generateDirectory').addEventListener('click', directoryGenerator);
+	document.getElementById('idButton').addEventListener('click',requestsByEmployeeGenerator);
 }
 
 const URL = "http://localhost:8087/ExpenseReimbursementSystem/viewRequests";
@@ -186,11 +187,11 @@ function directoryGenerator() {
 }
 
 function requestsByEmployeeGenerator() {
-	var id = document.forms["byEmployee"]["textBox"].value;
+	id = document.getElementById('textBox').value;
+	console.log(id);
 	fetch("http://localhost:8087/ExpenseReimbursementSystem/returnByEmployee?empid=" + id).then(
 			function(response) {
 				let data = response.json();
-				console.log(data);
 				return data;
 			}).then(function(data) {
 
