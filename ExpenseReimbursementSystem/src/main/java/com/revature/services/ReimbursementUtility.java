@@ -92,5 +92,18 @@ public class ReimbursementUtility {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<ReimbursementRequest> returnAllReimbursementRequests(){
+		List<ReimbursementRequest> tempList = new ArrayList<>();
+		try {
+			tempList.addAll(rrdi.returnAllReimbursementRequestsSQL());
+			return tempList;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+	}
 
 }
