@@ -5,22 +5,39 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <link rel="stylesheet" type="text/css" href="Website.css"> 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <title>Login</title>
+            <title>Update Info</title>
+            <script src ="UpdateInfo.js"></script>
         </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Features</a>
-                <a class="nav-item nav-link" href="#">Pricing</a>
-                <a class="nav-item nav-link disabled" href="logout">Logout</a>
+                <a class="nav-item nav-link active" href="employeeHomePage">Home</a>
+                <a class="nav-item nav-link active" href="logout">logout</a>
             </div>
             </div>
         </nav>
+
+        <div class ="col -sm-9 col-md-7 col-lg-5 mx-auto"> 
+            <div class="jumbotron">
+                <h1 id ="welcome"></h1>
+            </div>
+        </div>
+        <div class ="col -sm-9 col-md-7 col-lg-5 mx-auto"> 
+        <div class = "jumbotron">
+            <form action="updateInfo" method="GET">
+                <h4>Enter New UsernameUsername<br>
+                <input name="username" type="text"></h4><br>
+                <h4>Enter New Password<br>
+                <input name="password" type="password"></h4><br>
+                <h4>Enter New Email<br>
+                <input name="email" type ="text"><br></h4>
+                <h5><button type="submit" value="update info">Submit</button></h5>
+            </form>
+        </div>
+        </div>
     </body>
 </html>

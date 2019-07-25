@@ -8,24 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.revature.services.ParseMethods;
-
-@WebServlet("/employeeHomePage")
-public class EmployeeHomePage extends HttpServlet {
+@WebServlet("/updateInfoPage")
+public class UpdateInfoPage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
-		ParseMethods pm = new ParseMethods();
 		if (session != null) {
-			String rawManager = session.getAttribute("managerOf").toString();
-			int managerOf = pm.tryParseInt(rawManager);
-			if (managerOf > 0) {
-				response.sendRedirect("managerHomePage");
-			} else {
-				request.getRequestDispatcher("EmployeeHomePage.html").forward(request, response);
-			}
+
+			request.getRequestDispatcher("UpdateInfoPage.html").forward(request, response);
 		} else {
 			response.sendRedirect("login");
 		}

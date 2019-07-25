@@ -1,54 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ServletDemo</display-name>
-  <servlet>
-    <description></description>
-    <display-name>UpdateInfo</display-name>
-    <servlet-name>UpdateInfo</servlet-name>
-    <servlet-class>com.revature.servlet.UpdateInfo</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UpdateInfo</servlet-name>
-    <url-pattern>/UpdateInfo</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Manager</display-name>
-    <servlet-name>Manager</servlet-name>
-    <servlet-class>com.revature.servlet.Manager</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Manager</servlet-name>
-    <url-pattern>/Manager</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>EmployeeDirectory</display-name>
-    <servlet-name>EmployeeDirectory</servlet-name>
-    <servlet-class>com.revature.servlet.EmployeeDirectory</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EmployeeDirectory</servlet-name>
-    <url-pattern>/EmployeeDirectory</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ReturnByEmployee</display-name>
-    <servlet-name>ReturnByEmployee</servlet-name>
-    <servlet-class>com.revature.servlet.ReturnByEmployee</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ReturnByEmployee</servlet-name>
-    <url-pattern>/ReturnByEmployee</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>MangerHomePage</display-name>
-    <servlet-name>MangerHomePage</servlet-name>
-    <servlet-class>com.revature.servlet.MangerHomePage</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MangerHomePage</servlet-name>
-    <url-pattern>/MangerHomePage</url-pattern>
-  </servlet-mapping>
+
 </web-app>

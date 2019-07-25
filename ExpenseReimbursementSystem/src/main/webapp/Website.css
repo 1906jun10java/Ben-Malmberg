@@ -20,9 +20,10 @@ h1{
     margin-right: -50%;
     transform: translate(-50%, -50%)
 }
-h3,h5{
-    text-align: center; 
+h3,h4,h5{
+    text-align: center;
 }
+
 
 .labelClass{
     text-align: center; 
