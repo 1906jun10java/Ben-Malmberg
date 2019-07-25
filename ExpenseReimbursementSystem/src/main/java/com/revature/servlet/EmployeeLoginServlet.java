@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 import com.revature.services.Login;
+import com.revature.services.ParseMethods;
 
 
 @WebServlet("/login")
@@ -28,14 +29,20 @@ public class EmployeeLoginServlet extends HttpServlet {
 		
 		Login login = new Login();
 		HttpSession session = request.getSession();
-		
+		ParseMethods pm = new ParseMethods();
 		String username = request.getParameter("EmployeeUserName");
 		String password = request.getParameter("EmployeePassword");
 		boolean test = login.loginTest(username,password );
 		
 		if(test == true) {
 			session = makeMeACookie(username, session);
+			String rawManager = session.getAttribute("managerOf").toString();
+			int managerOf = pm.tryParseInt(rawManager);
+			if(managerOf > 0) {
+				response.sendRedirect("managerHomePage");
+			}else {
 			response.sendRedirect("employeeHomePage");
+			}
 		}
 		else {
 			response.sendRedirect("login");

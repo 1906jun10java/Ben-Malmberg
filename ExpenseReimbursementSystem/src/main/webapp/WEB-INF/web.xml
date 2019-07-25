@@ -41,4 +41,14 @@
     <servlet-name>ReturnByEmployee</servlet-name>
     <url-pattern>/ReturnByEmployee</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MangerHomePage</display-name>
+    <servlet-name>MangerHomePage</servlet-name>
+    <servlet-class>com.revature.servlet.MangerHomePage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MangerHomePage</servlet-name>
+    <url-pattern>/MangerHomePage</url-pattern>
+  </servlet-mapping>
 </web-app>
