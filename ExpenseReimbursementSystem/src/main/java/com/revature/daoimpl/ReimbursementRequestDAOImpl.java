@@ -64,6 +64,7 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		 */
 		ps.setInt(4, rr.getStatus());
 		ps.setInt(5, rr.getDptId());
+		ps.setInt(6, 0);
 		ps.execute();
 	}
 
