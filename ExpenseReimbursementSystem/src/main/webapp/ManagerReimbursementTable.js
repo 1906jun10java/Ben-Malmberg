@@ -35,10 +35,11 @@ function pendingManagerTableGenerator() {
 		headerCell.innerHTML = "Status";
 		
 		headerCell = row.insertCell(-1);
-		headerCell.innerHTML = "ApprovedBy";
+		headerCell.innerHTML = "Resolved By";
 
 		// Add the data rows.
-		for (let i = 1; i < data.length; i++) {
+		for (let i = 0; i < data.length; i++) {
+			if(data[i].status === 1){
 			row = table.insertRow(-1);
 			let cell = row.insertCell(-1);
 			cell.innerHTML = data[i].reimbursementId;
@@ -63,7 +64,7 @@ function pendingManagerTableGenerator() {
 			
 			cell = row.insertCell(-1);
 			cell.innerHTML = data[i].approvedBy;
-
+			}
 		}
 
 		// replace the empty div with a table
