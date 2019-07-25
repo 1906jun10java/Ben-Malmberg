@@ -6,7 +6,7 @@
             <link rel="stylesheet" type="text/css" href="Website.css"> 
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <title>Login</title>
-            <script src ="EmployeeHomePage.js"></script>
+            <script src ="ViewReimbursementsByEmployee.js"></script>
         </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,28 +15,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="employeeHomePage">Home</a>
-                <a class="nav-item nav-link active" href="updateInfoPage">Update Info</a>
-                <a class="nav-item nav-link active" href="requestReimbursementPage">Submit Reimbursement Requests</a> 
-                <a class="nav-item nav-link active" href="logout">logout</a>
+                    <a class="nav-item nav-link active" href="employeeHomePage">Home</a>
+                    <a class="nav-item nav-link active" href="logout">logout</a>
             </div>
             </div>
         </nav>
         <div class ="col -sm-9 col-md-7 col-lg-5 mx-auto"> 
-                <div class="jumbotron">
-                    <h1 id ="welcome"></h1>
-                </div>
-                </div>
-                <div class ="col -sm-9 col-md-7 col-lg-6 mx-auto">
-                <div class="jumbotron">
-                <h3><div id ="EmployeeTable"></div></h3>
-                </div>
-                </div>
-                <div class ="col -sm-9 col-md-7 col-lg-5 mx-auto">
-                <div class="jumbotron">
-                    <h3><label>Current Requests</label>
-                    <div id ="makeMeATable"></div></h3>
-            </div>
+        <div class="jumbotron">
+        <h3> <input id = 'textBox'>
+        <button id = 'idButton' type="button">Get Employee by Id</button> 
+           <div id="tableByEmployee"></div></h3>
+        </div>
         </div>
     </body>
 </html>
