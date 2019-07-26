@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import com.revature.beans.Employee;
 import com.revature.daoimpl.EmployeeDAOImpl;
 import com.revature.services.Login;
@@ -17,7 +19,7 @@ import com.revature.services.Login;
 @WebServlet("/login")
 public class EmployeeLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static Logger log = Logger.getRootLogger();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.getRequestDispatcher("EmployeeLoginPage.html").forward(request, response);
@@ -34,6 +36,7 @@ public class EmployeeLoginServlet extends HttpServlet {
 
 		if (test == true) {
 			session = makeMeACookie(username, session);
+			log.trace("Login occured for profile "+  session.getAttribute("email").toString());
 			response.sendRedirect("employeeHomePage");
 		} else {
 			response.sendRedirect("login");
